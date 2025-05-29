@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOTERIDER</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-stone-900">
+    <div>
+      <!-- upper container containing form-->
+      <form action="/create" method="post">
+        <input
+          type="text"
+          name="title"
+          placeholder="ENTER TASK"
+          class="bg-stone-600 my-10 mx-10 px-10 block w-full h-10 text-neutral-100 rounded-full"
+        />
+        <textarea
+          name="desc"
+          placeholder="DESCRIBE YOUR TASK"
+          class="bg-stone-600 mx-10 px-10 h-15 my-10 block rounded-full w-full text-neutral-100"
+        ></textarea>
+        <input
+          type="submit"
+          class="bg-green-300 rounded-full hover:bg-green-600 px-10 mx-10 active:bg-green-900 active:text-yellow-200 block"
+        />
+      </form>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg: grid-cols-2 gap-2">
+      <!-- lower container containing divs of cards -->
+
+      <% if(files.length>0){ %>
+          <% files.forEach(function(val){ %>
+            <div
+               class="p-5 m-10 text-neutral-100 bg-stone-600
+               w-50 rounded-xl 
+               hover:outline-none hover:ring-2 hover:ring-blue-500 hover:ring offset-2"
+               >
+               <p>
+                  <%= val.substr(0,val.length-4) %>
+               </p>
+               <a href="http://localhost:3000/ <%= val.substr(0,val.length-4) %>" class="text-blue-300"> Read More </a>
+            </div>
+            <% }) %>
+      <%} else { %>
+         <h3 class="text-neutral-200">no task yet..</h3>
+      <% } %>
+  </body>
+</html>
