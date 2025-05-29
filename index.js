@@ -36,4 +36,24 @@ app.get("/:file_name",function(req,res){
       }
     });
 });
+
+
+app.get('/rename/:file_name',function(req,res){
+    res.render('rename',{file_name:req.params.file_name})
+});
+
+app.post('/renamed/:old_name',function(req,res){
+    fs.rename(`./files/${req.params.old_name}.txt`,`./files/${req.body.new_name}.txt`,function(err){
+      if(err) console.error(err);
+      else res.redirect('/');
+    });
+    
+});
+
+app.get('/delete/:file_name',function(req,res){
+    fs.unlink(`./files/${req.params.file_name}.txt`,function(err){
+      if(err) console.error(err);
+      else res.redirect('/');
+    })
+});
 app.listen(3000);

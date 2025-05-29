@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTERIDER</title>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-stone-900 text-neutral-100 block">
+    <form action="/renamed/<%=file_name%>" method="post">
+        <laber for="new_name" class =" p-2 m-3">ENTER NEW FILE NAME</laber>
+        <input name="new_name" type="text" class="inline-block p-2 m-3 bg-stone-600 rounded ">
+        <input type="submit" class="block bg-green-600 hover:bg-green-900 rounded p-3 m-4">
+    </form>
+</body>
+</html>
